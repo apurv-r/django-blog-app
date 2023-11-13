@@ -39,8 +39,9 @@ def create_post(request):
 
     return render(request, 'BlogApp/createPost.html', {"form": form})
 
+# view to display a blog post
 def view_post(request, post_id):
-    # Retrieve the blog post from the database
+    # Retrieve the blog post from the database using the post_id
     blog_post = BlogPost.objects.get(id=post_id)
 
     # Increment the view count
