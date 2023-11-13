@@ -1,0 +1,42 @@
+{% extends 'BlogApp/base.html' %}
+
+{% block title %}Create Post{% endblock %}
+
+{% block content %}
+    <style>
+        /* Set uniform width for form elements */
+        form input[type="text"],
+        form textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Style the submit button */
+        form button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 15px;
+            font-weight: bolder;
+        }
+
+        /* Add some spacing between form elements */
+        form p {
+            margin: 0px 15px 10px 15px;
+        }
+    </style>
+
+    <h2 style="margin-left: 15px">Create a new post</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">POST!</button>
+    </form>
+{% endblock %}
